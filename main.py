@@ -4,6 +4,7 @@ import pymunk
 
 import player
 import baskets
+import ball
 
 import constants as c
 
@@ -21,6 +22,7 @@ space.gravity = 0, 981
 player = player.Player(window, space)
 blue_basket = baskets.Basket(window, space, (c.BLUE_BASKET_X, 540), "blue")
 red_basket = baskets.Basket(window, space, (c.RED_BASKET_X, 540), "red")
+ball = ball.Ball(window, space)
 
 async def main():
     while True:
@@ -33,6 +35,7 @@ async def main():
         player.draw()
         blue_basket.draw()
         red_basket.draw()
+        ball.draw()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

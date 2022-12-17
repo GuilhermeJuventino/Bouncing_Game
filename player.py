@@ -12,6 +12,8 @@ class Player:
 
         #self.shape = pymunk.Circle(self.body, 80)
         self.shape = pymunk.Poly.create_box(self.body, (30, 80))
+        self.shape.elasticity = 0.8
+        self.shape.friction = 0.5
 
         self.space.add(self.body, self.shape)
         self.rect = pygame.Rect(self.body.position.x, self.body.position.y, 30, 80)
@@ -22,6 +24,8 @@ class Player:
     
     def move_player(self):
         mouse_position = pygame.mouse.get_pos()
+
+        self.new_x = mouse_position[0]
 
         self.body.position = (mouse_position[0], 540)
 
